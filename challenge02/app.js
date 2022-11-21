@@ -1,54 +1,30 @@
-const letters = [
-  { letter: 'a', value: 97 },
-  { letter: 'b', value: 98 },
-  { letter: 'c', value: 99 },
-  { letter: 'd', value: 100 },
-  { letter: 'e', value: 101 },
-  { letter: 'f', value: 102 },
-  { letter: 'g', value: 103 },
-  { letter: 'h', value: 104 },
-  { letter: 'i', value: 105 },
-  { letter: 'j', value: 106 },
-  { letter: 'k', value: 107 },
-  { letter: 'l', value: 108 },
-  { letter: 'm', value: 109 },
-  { letter: 'n', value: 110 },
-  { letter: 'o', value: 111 },
-  { letter: 'p', value: 112 },
-  { letter: 'q', value: 113 },
-  { letter: 'r', value: 114 },
-  { letter: 's', value: 115 },
-  { letter: 't', value: 116 },
-  { letter: 'u', value: 117 },
-  { letter: 'v', value: 118 },
-  { letter: 'w', value: 119 },
-  { letter: 'x', value: 120 },
-  { letter: 'y', value: 121 },
-  { letter: 'z', value: 122 }
-]
 
 const getWord = (word) => {
   let acum = '', result = ''
 
   Array.from(word).forEach( number => {
     acum += number
-    const ascii = letters.find( item => item.value === Number(acum))
+    const acumNumber = Number(acum)
 
-    if(ascii) {
-      result += ascii.letter
+    // From 32 to 126 are ASCII printable characters
+    if(acumNumber >= 32 && acumNumber <= 126) {
+      result += String.fromCharCode(acumNumber)
       acum = ''
     }
+
   })
 
   return result
 }
 
 const init = () => {
-  const x = '11610497110107115 102111114 11210897121105110103 9911110010110998101114 11210810197115101 11510497114101'
-  const words = x.split(' ')
+  const textToDecode = '11610497110107115 102111114 11210897121105110103 9911110010110998101114 11210810197115101 11510497114101'
+  // const textToDecode = `83101 113117105101110 101114101115 84101 9911111011112299111 84117 110111 109101 9911111011199101115 97 109105 84101 101115116111121 1119811510111411897110100111 84101 101115116111121 115105103117105101110100111 81117105101114101115 10611710397114 7411710110397 99111110109105103111 8697108101 8697109111115 97 10611710397114 691061019911711697 101115116101 9911110997110100111 101110 10897 11610111410910511097108 11511798109105116 116561181061045651505752561029911097108`
+  
+  const words = textToDecode.split(' ')
+  const decodeText = words.map( word => getWord(word))
 
-  const result = words.map( word => getWord(word))  
-  console.log({ result: result.join(' ') })
+  console.log({ result: decodeText.join(' ') })
 }
 
 init()
