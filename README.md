@@ -10,3 +10,4 @@ Solutions of [Codember](https://codember.dev) challenges with Javascript made by
 | Challenge 2 | [Solution](/challenge02/) |
 | Challenge 3 | [Solution](/challenge03/) |
 | Challenge 4 | [Solution](/challenge04/) |
+| Challenge 5 | [Solution](/challenge05/) |

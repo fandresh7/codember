@@ -7,7 +7,8 @@
     "challenge01": "node challenge01/app",
     "challenge02": "node challenge02/app",
     "challenge03": "node challenge03/app",
-    "challenge04": "node challenge04/app"
+    "challenge04": "node challenge04/app",
+    "challenge05": "node challenge05/app"
   },
   "keywords": [],
   "author": "Andrés Hortua",
